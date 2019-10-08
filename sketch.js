@@ -1,38 +1,41 @@
-
-
-
 let array = [];
 let backgroundColor = 200;
+let noiseOffset = 0.0;
+let strokeWidth = 5;
 
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(backgroundColor);
-  strokeWeight(5);
+  strokeWeight(strokeWidth);
   noFill();
 }
 
 function draw() {
 
-//  background(200,50,133,5);
-  if (mouseIsPressed){
-//  stroke(map(mouseX, 0, 600, 0, 255, true));
-//  line(width-mouseX, height-mouseY, width-pmouseX, height-pmouseY);
-//  line(mouseX, mouseY, pmouseX, pmouseY);
-  backgroundColor -= 3;
-  background(backgroundColor);
-  //line(mouseX, mouseY, pmouseX, pmouseY);
+  strokeWeight(strokeWidth);
 
-  array.push([mouseX, mouseY]);
-  beginShape();
-  for (let i = 0; i < array.length; i++) {
-    //line(array[i][0], array[i][1], array[i+1][0], array[i+1][1]);
+  noiseOffset += 0.01;
+  strokeWidth = noise(noiseOffset) * 100;
+  //  background(200,50,133,5);
+  if (mouseIsPressed) {
+    //  stroke(map(mouseX, 0, 600, 0, 255, true));
+    //  line(width-mouseX, height-mouseY, width-pmouseX, height-pmouseY);
+    //  line(mouseX, mouseY, pmouseX, pmouseY);
+    backgroundColor -= 3;
+    background(backgroundColor);
+    //line(mouseX, mouseY, pmouseX, pmouseY);
 
-    curveVertex(array[i][0], array[i][1]);
+    array.push([mouseX, mouseY]);
+    beginShape();
+    for (let i = 0; i < array.length; i++) {
+      //line(array[i][0], array[i][1], array[i+1][0], array[i+1][1]);
+
+      curveVertex(array[i][0], array[i][1]);
+    }
+    endShape();
+
   }
-  endShape();
-
-}
 }
 
 
