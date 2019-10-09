@@ -5,7 +5,7 @@ let strokeWidth = 5;
 
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(550,550);
   background(backgroundColor);
   strokeWeight(strokeWidth);
   noFill();
@@ -36,9 +36,9 @@ function draw() {
     endShape();
 
   }
+
+
 }
-
-
 
 function keyTyped() {
 
@@ -48,9 +48,8 @@ function keyTyped() {
     saveCanvas('Drawing Machine', 'png');
   } else if (key === 'd') {
     background(255);
+  
     //display image
-
-
 
     beginShape();
     for (let i = 0; i < array.length; i++) {
@@ -69,6 +68,14 @@ function mousePressed() {
   array = [];
   backgroundColor = 255;
 
-
-
 }
+
+function drawGrid(){
+  for (let i = 0; i < 3; i++){
+    ellipse(i * 100, 50 ,50,50);
+    for (let j = 0; j < 3; j++){
+
+      ellipse(i *100, j *100,50,50);
+    }
+    }
+  }
