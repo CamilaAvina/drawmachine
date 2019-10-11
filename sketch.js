@@ -4,21 +4,35 @@ let noiseOffset = 0.0;
 let strokeWidth = 5;
 
 
+
 function setup() {
 
-  createCanvas(550, 550);
+  createCanvas(windowWidth, windowHeight);
   background(backgroundColor);
 
-
+  for (let i = 1; i < 10; i++) {
+      // for (let j = 1; j < 10; j++) {
+      //   strokeWeight(2);
+      //   noStroke();
+      //   fill(random(255) - j * 10, random(255) - j * 10, random(255) - j * 20);
+      //   circle(i * windowWidth, j * windowHeight, i * 3);
+      // }
+      for (let i = 0; i < 10; i++) {
+        line(0, 0, windowWidth, i * 150);
+        strokeWeight(2);
+        stroke(random(255) - i * 15, random(255) - i * 10, random(255) - i * 20);
+        line(windowWidth, windowHeight, i * 150, 0);
+        line(0, windowHeight, i * 150, 0);
+        line(windowWidth, 0, i * 150, 0);
+      }
   strokeWeight(strokeWidth);
-  noFill();
-drawGrid();
+    noFill();
 
 }
 
 
 function draw() {
-
+  stroke(5);
   strokeWeight(strokeWidth);
 
   noiseOffset += 0.01;
@@ -42,6 +56,28 @@ function draw() {
     endShape();
 
   }
+
+  // for (let i = 1; i < 10; i++) {
+  //     // for (let j = 1; j < 10; j++) {
+  //     //   strokeWeight(2);
+  //     //   noStroke();
+  //     //   fill(random(255) - j * 10, random(255) - j * 10, random(255) - j * 20);
+  //     //   circle(i * windowWidth, j * windowHeight, i * 3);
+  //     // }
+  //     for (let i = 0; i < 10; i++) {
+  //       line(0, 0, windowWidth, i * 150);
+  //       strokeWeight(2);
+  //       stroke(random(255) - i * 15, random(255) - i * 10, random(255) - i * 20);
+  //       line(windowWidth, windowHeight, i * 150, 0);
+  //       line(0, windowHeight, i * 150, 0);
+  //       line(windowWidth, 0, i * 150, 0);
+  //     }
+
+    }
+
+
+
+
 }
 
 
@@ -52,7 +88,7 @@ function keyTyped() {
     //save this image
     saveCanvas('Drawing Machine', 'png');
   } else if (key === 'd') {
-    background(255);
+    background(200);
 
     //display image
 
@@ -75,20 +111,20 @@ function mousePressed() {
 
 }
 
-function drawGrid() {
-
-  for (let i = 1; i < 10; i++) {
-    for (let j = 1; j < 10; j++) {
-      noStroke();
-      fill(random(255) - j * 10, random(255) - j * 10, random(255) - j * 20);
-      circle(i * 50, j * 50, i * 3);
-    }
-    for (let i = 0; i < 10; i++) {
-      line(0, 0, 500, i * 150);
-      stroke(random(255) - i * 15, random(255) - i * 10, random(255) - i * 20);
-      line(500, 500, i * 150, 0);
-      line(0, 500, i * 150, 0);
-      line(450, 0, i * 150, 0);
-    }
-  }
-}
+// function drawGrid() {
+//
+//   for (let i = 1; i < 10; i++) {
+//     for (let j = 1; j < 10; j++) {
+//       noStroke();
+//       fill(random(255) - j * 10, random(255) - j * 10, random(255) - j * 20);
+//       circle(i * 50, j * 50, i * 3);
+//     }
+//     for (let i = 0; i < 10; i++) {
+//       line(0, 0, 500, i * 150);
+//       stroke(random(255) - i * 15, random(255) - i * 10, random(255) - i * 20);
+//       line(500, 500, i * 150, 0);
+//       line(0, 500, i * 150, 0);
+//       line(450, 0, i * 150, 0);
+//     }
+//   }
+// }
