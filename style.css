@@ -8,6 +8,7 @@ body {
   width: 80%;
   text-align: center;
   font-style: "courier", monospace;
+  background-color: #f2d118;
 }
 
 canvas {
