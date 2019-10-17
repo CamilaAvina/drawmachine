@@ -10,7 +10,11 @@ body {
   font-style: "courier", monospace;
   background-color: #f2d118;
 }
+#background{
+  background-image: linear-gradient(to right,red, yellow);
+  padding: 100px;
 
+}
 canvas {
   margin: 100px auto 0 auto;
   margin-top: 20px;
